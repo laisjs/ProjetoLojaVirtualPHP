@@ -1,8 +1,37 @@
+<!--para os cards de imagem ficarem do mesmo tramanho, todas as imagens preciso ter o mesmo tamamnho-->
+
 <?php
 
-$usuario = ["logado"=> false, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
+$usuario = ["logado"=> true, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
 //$usuario = "";
+
+$produtos = [
+    "produto1" => ["nome" => "Curso Fullstack", "descricao" => "Curso fullstack ensina programação", "preco" => 1.200, "img" => "img/produto1.jpg"], 
+    "produto2" => ["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"]
+    ];
+
+    //a imagem entra na array tb (com link da pasta)
+
+$categorias = ["Cursos", "Tutoriais", "Artigos", "Fórum", "Códigos"];
+    
 ?>
+
+
+
+<!--as informações de um produto, cada produto está dentro das arrays. Ou seja, dentro da array que é produtos, temos outras
+duas arrays especificando os produtos. Para imprimir essas informações vamos usar o forech = que percorre uma array quando 
+tem associação e valor ex: nome=> Vinicius
+
+Exemplo: $pessoa = ["nome" => "lais", "sobrenome" => "Silva", "idade" => 30> 
+
+foreach ($pessoa as $chave => $value){
+    echo "$chave: $value <br>";
+
+    '$chave corresponde as variaveis e $value aos valores (ele sabe o que é o que porque 
+    por causa da posição das coisas que estão na array)
+
+    
+}-->
 
 
 
@@ -74,6 +103,18 @@ $usuario = ["logado"=> false, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
                 </ul>
             </div>
             </nav>
+<nav> 
+    <ul class= "row mt-3 justify-content-center">
+        <?php foreach ($categorias as $categoria):?>
+        <li class= "col-md-2"><?php echo $categoria?></li>
+
+  <!--?=$categoria? forma reduzida, sintaxe curta, só da certo quanto é uma linh só que vc quer imprimir-->
+        <?php endforeach; ?>
+    </ul>
+
+
+</nav>
+
 
             </header>
 
@@ -81,46 +122,84 @@ $usuario = ["logado"=> false, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
 
             <!-- ela vai segurar os cards. Tag main, ela fala que começa todo o conteúdo, a main substitui o section-->
               <section class= "row">
-
+                  <?php foreach ($produtos as $chave=> $produto): ?>
+                  <!-- vai fechar onde terminar a estrutura da coluna trocar value por produto (no singular)-->  
+                                
+                  
               <!--coluna para segurar-->
 
-              <div class= "col-md-4"> 
+              <div class= "col-md-4 mt-3"> 
+                <!--utiliti-->
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="<?php echo $produto["img"]; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title"><?php  echo $produto ["nome"]; ?></h5>
+                        <p class="card-text"><?php  echo $produto ["descricao"]; ?></p>
+                        <h4  class= "text-success"> R$<?php  echo $produto ["preco"]; ?></a>
+<!-- Button trigger modal -->
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo $chave; ?>">
+
+                Comprar
+               </button>
+                        <!--teve que abrir o php aqui porque tinha uma array com outra array dentro, então pra imprimir precisa
+                        chamar em cada lugar. Então será impresso um card para cada produto da array-->
                 </div>
-            </div>
-            </div>
+              </div>
+              </div>
+              <?php endforeach; ?>
 
-
-            <div class= "col-md-4"> 
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            </div>
-
-            <div class= "col-md-4"> 
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            </div>
-
+                     
+            
               </section>
             </main>
+
+
+
+<!-- Modal -->
+<!-- atributos: data-toogle: vai abrir o modal e fechar tb. Ele vai abrir o modal que tenha o id #exampleeModal
+class = "modal fade" são so efeitos na hora de aparecer o modal. Ou seja, o botão vai abrir o modal que tem o id #exampleeModal
+modalcontent - onde vai estar todo o conteúdo -->
+
+<?php  foreach ($produtos as $chave=>$produto):?>
+<div class="modal fade" id="<?php echo $chave; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--aqui o id="exampleModal" será substitudo por $chave-->
+
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Produto: <?php echo $produto ["nome"];?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group"><input type="text" name="nomeCliente" placeholder="Nome completo"></div>
+              <div class="form-group"><input type="number" name="cpfCliente" placeholder="CPF"></div>
+              <div class="form-group"><input type="number" name="cartaoCliente" placeholder="Cartão de crédito"></div>
+              <div class="form-group"><input type="date" name="dataValidadeCartao" placeholder="Data de validade do cartão"></div>
+              <div class="form-group"><input type="number" maxlength="3" name="cvv" placeholder="CVV do cartão"></div>
+
+            </form>
+        ...
+      </div>
+      <div class="modal-footer">
+        <div class= "text-primary"> Preço total: R$ <?php echo $produto ["preco"];?></div>
+        <button type="button" class="btn btn-success">Finalizar compra</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach; ?>
+
+
+
+
+
+
+
+
 
     <body> 
 
