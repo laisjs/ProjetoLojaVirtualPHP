@@ -6,9 +6,9 @@ $usuario = logarUsuario("Lais Silva", 1);
 
 $produtos = [
     "produto1" => ["nome" => "Curso Fullstack", "descricao" => "Curso fullstack ensina programação", "preco" => 1.200, "img" => "img/produto1.jpg"], 
-    "produto2" => ["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"]
+    "produto2" => ["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"],
     "produto3" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
-    "produto4" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.png"],
+    "produto4" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
     "produto5" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
     "produto6" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
 ];

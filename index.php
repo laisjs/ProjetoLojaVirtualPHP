@@ -186,7 +186,7 @@ modalcontent - onde vai estar todo o conteúdo -->
                    
                     <div class="form-group">
 
-                    <input type = "text" name "nomeProduto" value= "<?php echo $produto ["nome"]; ?>" hidden>
+                    <input type = "text" name="nomeProduto" value= "<?php echo $produto ["nome"]; ?>" hidden>
                     <input type="text" name="nomeCliente" placeholder="Nome Completo"> 
                     </div>
                     <div class="form-group">
