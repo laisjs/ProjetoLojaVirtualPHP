@@ -2,12 +2,17 @@
 
 <?php
 
+include_once "funcoes.php";
 $usuario = ["logado"=> true, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
 //$usuario = "";
 
 $produtos = [
-    "produto1" => ["nome" => "Curso Fullstack", "descricao" => "Curso fullstack ensina programação", "preco" => 1.200, "img" => "img/produto1.jpg"], 
-    "produto2" => ["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"]
+    "produto1" =>["nome" => "Curso Fullstack", "descricao" => "Curso fullstack ensina programação", "preco" => 1.200, "img" => "img/produto1.jpg"], 
+    "produto2" =>["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"],
+    "produto3" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
+    "produto4" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
+    "produto5" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
+    "produto6" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
     ];
 
     //a imagem entra na array tb (com link da pasta)
@@ -37,67 +42,70 @@ foreach ($pessoa as $chave => $value){
 
 <!DOCTYPE html>
         <html lang="en">
-        <head>
+        <?php include "head.php"; ?> <!--aqui foi incluido o head que foi criado em outra página-->
+        <!--<head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>Loja Virtual</title>
-        </head>
+        </head>-->
         <!-- bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
-        <header>
+        <?php include "header.php"; ?> <!--aqui foi incluido o header criado fatiado em outra página-->
+       
+        <!--<header>
+        
+        aqui ta a nav-->
 
-        <!--aqui ta a nav-->
 
+            <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
+       o que chamamos de conteiener-->
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!--o que chamamos de conteiener-->
+           <!--<a class="navbar-brand" href="#">Cursos</a>
 
-        <a class="navbar-brand" href="#">Cursos</a>
-
-        <!--aqui fica o nome do projeto-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       aqui fica o nome do projeto-->
+           <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
 
-        <!--ai fica eh uma div que segura a ul que quando estiver nor esponsivo transforma em menu hamburger -->
-            <ul class="navbar-nav">
+    ai fica eh uma div que segura a ul que quando estiver nor esponsivo transforma em menu hamburger -->
+               <!--<ul class="navbar-nav">-->
 
-            <?php  if(isset ($usuario) && $usuario != "" && $usuario ['logado']): ?>
+               <?php  //if(isset ($usuario) && $usuario != "" && $usuario ['logado']): ?>
             <!--isset = ess variavel existe?-->
 
-                    <?php if ($usuario ['nivelAcesso'] == 0): ?>
+                    <?php //if ($usuario ['nivelAcesso'] == 0): ?>
 
-                <li class="nav-item active">
+                <!--<li class="nav-item active">
                     <a class="nav-link" href="#">Ações <span class="sr-only">(current)</span></a>
                 </li>
 
-                    <?php else: ?>
+                    <?php //else: ?>
 
-    <!--else da variavel usuario existente?-->
+  else da variavel usuario existente?-->
 
                 
-                <li class="nav-item active">
+                <!--<li class="nav-item active">
                     <a class="nav-link" href="#">Perfil <span class="sr-only">(current)</span></a>
                 </li>
 
-                    <?php endif; ?>           
+                    <?php //endif; ?>           
 
                 <li class= "nav-item">
-                <a class= "nav-link" href= "#"> Olá <?php echo $usuario ['nome'];?></a>
+                <a class= "nav-link" href= "#"> Olá <?php //echo $usuario ['nome'];?></a>
 
                 </li>
 
-                   <?php else: ?>
+                   <?php //else: ?>
 
                 
                   <li class= "nav-item">
                 <a class= "nav-link" href= "#"> Login </a>
 
                 </li>
-                 <?php endif;?>
+                 <?php //endif;?>
 
 
                 </ul>
@@ -105,18 +113,18 @@ foreach ($pessoa as $chave => $value){
             </nav>
 <nav> 
     <ul class= "row mt-3 justify-content-center">
-        <?php foreach ($categorias as $categoria):?>
+        <?php //foreach ($categorias as $categoria):?>
         <li class= "col-md-2"><?php echo $categoria?></li>
 
-  <!--?=$categoria? forma reduzida, sintaxe curta, só da certo quanto é uma linh só que vc quer imprimir-->
-        <?php endforeach; ?>
-    </ul>
+ ?=$categoria? forma reduzida, sintaxe curta, só da certo quanto é uma linh só que vc quer imprimir-->
+        <?php //endforeach; ?>
+    <!--</ul>
 
 
 </nav>
 
 
-            </header>
+            </header>-->
 
             <main class= "container mt-5">
 
@@ -146,9 +154,7 @@ foreach ($pessoa as $chave => $value){
                 </div>
               </div>
               </div>
-              <?php endforeach; ?>
-
-                     
+              <?php endforeach; ?>                    
             
               </section>
             </main>
@@ -174,31 +180,38 @@ modalcontent - onde vai estar todo o conteúdo -->
         </button>
       </div>
       <div class="modal-body">
-          <form>
-              <div class="form-group"><input type="text" name="nomeCliente" placeholder="Nome completo"></div>
-              <div class="form-group"><input type="number" name="cpfCliente" placeholder="CPF"></div>
-              <div class="form-group"><input type="number" name="cartaoCliente" placeholder="Cartão de crédito"></div>
-              <div class="form-group"><input type="date" name="dataValidadeCartao" placeholder="Data de validade do cartão"></div>
-              <div class="form-group"><input type="number" maxlength="3" name="cvv" placeholder="CVV do cartão"></div>
 
-            </form>
-        ...
-      </div>
-      <div class="modal-footer">
-        <div class= "text-primary"> Preço total: R$ <?php echo $produto ["preco"];?></div>
-        <button type="button" class="btn btn-success">Finalizar compra</button>
-      </div>
-    </div>
-  </div>
-</div>
+           <form method="POST" action= "sucesso.php"> <!--sucesso.php é uma outra página-->
+                    
+                   
+                    <div class="form-group">
+
+                    <input type = "text" name "nomeProduto" value= "<?php echo $produto ["nome"]; ?>" hidden>
+                    <input type="text" name="nomeCliente" placeholder="Nome Completo"> 
+                    </div>
+                    <div class="form-group">
+                    <input type="number" name="cpfCliente" placeholder="CPF">
+                    </div>
+                    <div class="form-group">
+                    <input type="number" name="cartaoCliente" placeholder="Cartão de Credito">
+                    </div>
+                    <div class="form-group">
+                    <input type="date" name="dataValidadeCartao" placeholder="Data de Validade do Cartão de Credito">
+                    </div>
+                    <div class="form-group">
+                    <input type="number"maxlength="3" name="cvvCartao" placeholder="CVV do Cartão">
+                    </div>
+                
+            </div>
+            <div class="modal-footer">
+                <div class ="text-primary">Preço Total: R$<?php echo $produto["preco"];?> </div>
+                <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
 <?php endforeach; ?>
-
-
-
-
-
-
-
 
 
     <body> 
