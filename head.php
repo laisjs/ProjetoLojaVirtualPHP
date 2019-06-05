@@ -4,18 +4,28 @@ $usuario = logarUsuario("Lais Silva", 1);
 //$usuario = ["logado"=> true, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
 //$usuario = "";
 
-$produtos = [
-    "produto1" => ["nome" => "Curso Fullstack", "descricao" => "Curso fullstack ensina programação", "preco" => 1.200, "img" => "img/produto1.jpg"], 
-    "produto2" => ["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"],
-    "produto3" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
-    "produto4" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
-    "produto5" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
-    "produto6" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
-];
+//$produtos = [
+    //"produto1" => ["nome" => "Curso Fullstack", "descricao" => "Curso fullstack ensina programação", "preco" => 1.200, "img" => "img/produto1.jpg"], 
+    //"produto2" => ["nome" => "Curso Mobile Android", "descricao" => "O curso de te ensina a criar apps", "preco" => 1.400, "img" => "img/produto2.jpg"],
+    //"produto3" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
+    //"produto4" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
+    //"produto5" =>["nome" => "Curso FullStack ensina programação", "descricao" => "Um curso de programação incrivel", "preco" =>1200, "img" =>"img/produto1.jpg"],
+    //"produto6" =>["nome" => "Curso Moblie Andorid", "descricao" => "Um curso de criação de apps incrivel", "preco" =>1500, "img" =>"img/produto2.jpg"],
+//];
+//essa parte foi comentado porque será feita no json
+
+
 
 //a imagem entra na array tb (com link da pasta)
 
-$produtos = addProduto("Curso de UX", "Curso Incrivel", 2000, 'img/produto2.png', $produtos);
+$jsonProdutos = file_get_contents("Produtos.json");
+$produtos = json_decode($jsonProdutos, true);
+$produtos = $produtos ["Produtos"];
+addProduto("Curso Mobile Android", "Curso para criar um app", 2300, "img/produto2.jpg");
+
+//a partir do momento que eu decodifiquei o meu jason
+
+//$produtos = addProduto("Curso de UX", "Curso Incrivel", 2000, 'img/produto2.png', $produtos);
 
 $categorias = ["Cursos", "Tutoriais", "Artigos", "Fórum", "Códigos"];
     

@@ -145,8 +145,8 @@ foreach ($pessoa as $chave => $value){
                         <p class="card-text"><?php  echo $produto ["descricao"]; ?></p>
                         <h4  class= "text-success"> R$<?php  echo $produto ["preco"]; ?></a>
 <!-- Button trigger modal -->
-               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo $chave; ?>">
-
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo $produto['id']; ?>">
+               
                 Comprar
                </button>
                         <!--teve que abrir o php aqui porque tinha uma array com outra array dentro, então pra imprimir precisa
@@ -167,7 +167,7 @@ class = "modal fade" são so efeitos na hora de aparecer o modal. Ou seja, o bot
 modalcontent - onde vai estar todo o conteúdo -->
 
 <?php  foreach ($produtos as $chave=>$produto):?>
-<div class="modal fade" id="<?php echo $chave; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<?php echo $produto['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <!--aqui o id="exampleModal" será substitudo por $chave-->
 
 
