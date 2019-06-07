@@ -1,5 +1,5 @@
 <?php
-
+ include_once "funcoes.php"; 
 $usuario = logarUsuario("Lais Silva", 1);
 //$usuario = ["logado"=> true, "nome"=> "Lais J Silva", "nivelAcesso"=> 0];
 //$usuario = "";
