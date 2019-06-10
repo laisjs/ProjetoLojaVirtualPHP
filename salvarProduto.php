@@ -25,6 +25,7 @@ exit;
 //echo "<h1>Você não enviou nenhuma informação sobre o produto</h1>";
 //echo '<a class-"btn btn-primary" href="cadastroProduto.php"> Voltar para a página de cadastro!</a>';
 //exit;
+//}
 
 
 

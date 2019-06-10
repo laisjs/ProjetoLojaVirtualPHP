@@ -55,3 +55,23 @@ return $dataValidade > date('y-m-d');
 function validarCVV ($cvv){
     return strlen ($cvv) == 3;
 }
+
+function addUsuario($nomeUsuario, $emailUsuario, $senhaUsuario, $nivelDeAcesso){
+    $jsonUsuarios = file_get_contents("Usuarios.json");
+    //file_get_contents entra dentro desse arquivo e pega todo o conteudo
+    $Usuarios = json_decode($jsonUsuarios, true);
+    //json_decode transforme nosso jason em array, 
+ 
+    
+    $chave = count($Usuarios["usuarios"]) + 1;
+    //eu to perguntando  quantos itens tem no meu array e somando mais 1
+    $novoUsuario = ["id"=>"usuarios$chave",'nome'=>$nomeUsuario, 'email' =>$emailUsuario, 'senha'=>$senhaUsuario, 'nivelDeAcesso'=>$nivelDeAcesso];
+    
+    
+    $Usuarios ["usuarios"][]=$novoUsuario;   
+    $jsonUsuarios = json_encode($Usuarios);
+    
+
+    return file_put_contents("Usuarios.json", $jsonUsuarios);
+    //add produto deu certo? Se sim ok. 
+}
