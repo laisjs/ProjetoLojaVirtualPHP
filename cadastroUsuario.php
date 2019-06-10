@@ -41,7 +41,7 @@
                         <label for="nivelDeAcesso">Nível do Usuario</label>
                         <!--Label coloca uma descrição de cada input e quando coloca o for ele link o label no for.-->
                         <select name="nivelDeAcesso" id="nivelDeAcesso" class="form-control">
-                            <option selected disable> Selecione o nível!</option>
+                            <option selected disabled> Selecione o nível!</option>
                             <option value="0"> Administrador</option>
                             <option value="1"> Usuario</option>
                         </select>
