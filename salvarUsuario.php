@@ -5,7 +5,8 @@ $contadorInputVazio = 0;
 foreach($_POST as $item){
 $item == ""?$contadorInputVazio++:0;
 }
-if($contadorInputVazio == count($_POST)){
+
+if($contadorInputVazio == $itensPost){
 echo "<h1>Você não enviou nenhuma informação sobre o usuario</h1>";
 echo '<a class-"btn btn-primary" href="cadastroUsuario.php"> Voltar para a página de cadastro!</a>';
 exit;
